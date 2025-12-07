@@ -7,8 +7,8 @@ category = st.text_input("Κατηγορία")
 amount = st.number_input("Ποσό", min_value=0.0, step=0.5)
 description = st.text_area("Περιγραφή")
 
-if st.button("Καταχώριση"):
-    st.success("Η δαπάνη καταχωρήθηκε!")
+#if st.button("Καταχώριση1"):
+#    st.success("Η δαπάνη καταχωρήθηκε!")
 
 from supabase import create_client
 
@@ -24,7 +24,7 @@ if st.button("Καταχώριση"):
         "description": description
     }
     supabase.table("expenses").insert(data).execute()
-    st.success("Η δαπάνη αποθηκεύτηκε στο Supabase!")
+    st.success("Το αίτημα δαπάνης αποθηκεύτηκε!")
 
 st.subheader("📋 Όλες οι δαπάνες")
 expenses = supabase.table("expenses").select("*").execute()
